@@ -1,0 +1,26 @@
+spring:
+
+#Configuración MySQL
+  datasource: 
+    url: jdbc:mysql://localhost:3306/libreria?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver 
+
+#Configuaración Creacion de tablas (Hibernate)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect      
+  thymeleaf:
+    cache: false 
+
+#Configuración para cambiar la pagina de error 
+server:
+  error:
+    whitelabel:
+      enabled: false
+
