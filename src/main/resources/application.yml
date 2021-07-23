@@ -1,13 +1,13 @@
 spring:
 
-#Configuración MySQL
+#ConfiguraciÃ³n MySQL
   datasource: 
-    url: jdbc:mysql://localhost:3306/libreria?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3308/tiendaspring?zeroDateTimeBehavior=convertToNull
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver 
 
-#Configuaración Creacion de tablas (Hibernate)
+#ConfiguaraciÃ³n Creacion de tablas (Hibernate)
   jpa:
     show-sql: true
     hibernate:
@@ -18,7 +18,7 @@ spring:
   thymeleaf:
     cache: false 
 
-#Configuración para cambiar la pagina de error 
+#ConfiguraciÃ³n para cambiar la pagina de error 
 server:
   error:
     whitelabel:
