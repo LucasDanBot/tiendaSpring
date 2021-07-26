@@ -30,7 +30,6 @@ public class Producto {
     }
     
     
-    
     // GETTER Y SETTERS --------------------------------------------------------
     public String getId() {
         return id;
