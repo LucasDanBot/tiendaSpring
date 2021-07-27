@@ -16,10 +16,6 @@ public class FabricanteServicio {
     
     public void crearFabricante (String nombre) throws ErrorServicio {
         
-        
-        // hacer validaciones!!!
-        
-        
         validar(nombre);
         
         Fabricante fabricante = new Fabricante();
@@ -30,7 +26,22 @@ public class FabricanteServicio {
         
     }
     
-    
+    public void modificarFabricante (String nombre, String nombreNuevo) throws ErrorServicio {
+        
+        validar(nombre);
+        validar(nombreNuevo);
+        
+        Fabricante fabricante = fabricanteRepositorio.buscarPorNombre(nombre);
+        
+        if (fabricante == null) {
+            throw new ErrorServicio("No se encontro ningun Fabricante con ese nombre");
+        }
+        
+        fabricante.setNombre(nombreNuevo);
+        
+        fabricanteRepositorio.save(fabricante);
+        
+    }
     
     
     
