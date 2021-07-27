@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Tienda Egg</title>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- En los href vamos a poner a que controlador debe ir cuando se toque la palabra tienda egg-->
+        <a class="navbar-brand" href="#">
+          <img th:src="@{/img/logo-eggtech.png}" width="30" height="30" class="d-inline-block align-top" alt="">Tienda Egg</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Fabricantes
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- En los href vamos a poner a que controlador se tiene que ir cuando se toque crear fabricantes-->
+                <li><a class="dropdown-item" href="#">Crear Fabricante</a></li>
+                <li><hr class="dropdown-divider"></li>
+              <!-- En los href vamos a poner a que controlador se tiene que ir cuando se toque listar fabricantes-->
+                <li><a class="dropdown-item" href="#">Listar Fabricantes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Productos
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <!-- En los href vamos a poner a que controlador se tiene que ir cuando se toque crear producto-->
+                <li><a class="dropdown-item" href="#">Crear Producto</a></li>
+                <li><hr class="dropdown-divider"></li>
+              <!-- En los href vamos a poner a que controlador se tiene que ir cuando se toque listar producto-->
+                <li><a class="dropdown-item" href="#">Listar Producto</a></li>
+              </ul>
+            </li>
+           </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container m-3">
+          <!-- Esto nos va servir para mostrar un mensaje de alerta si el producto fue 
+    editado con exito o hubo un error. -->
+    <div th:if="${exito}!=null" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Exito!</strong> Producto registrado.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  
+    <div th:if="${error}!=null" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> <p th:text="${error}"></p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+        
+    <!-- Deberemos con thymeleaf sumar la etiqueta action para decirle al form a que controlador debe ir 
+    cuando se ingrese un producto y el tipo de mapping que tendra ese controlador con la etiqueta method. -->
+    <!-- En este formulario deberemos hacer que los input se muestren los datos del producto, para poder editarlos. 
+    Esto se logra con thymeleaf y el th:value. -->
+    <form>
+        <div class="mb-3">
+            <label  class="form-label">Nombre Producto</label>
+            <input type="text" class="form-control" placeholder="Nombre del Producto">
+          </div>
+         <div class="mb-3">
+            <label  class="form-label">Precio</label>
+            <input type="number" class="form-control" placeholder="Precio del Producto">
+          </div>
+         <div class="mb-3">
+            <label  class="form-label">Descripcion</label>
+            <input type="text" class="form-control" placeholder="Descripcion del Producto">
+          </div>
+         <div class="mb-3">
+<!--             En este select vamos a poner a nuestros fabricantes para que el usuario 
+             pueda elegir un fabricante para asignarle al producto.-->
+            <select class="form-select" aria-label="Default select example">
+                <option selected></option>
+            </select>
+          </div>
+        <button type="submit" class="btn btn-primary">Editar</button>
+      </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
