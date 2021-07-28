@@ -47,6 +47,9 @@ public class FabricanteServicio {
     
     
     
+    
+    
+    
     private void validar (String nombre) throws ErrorServicio{
         
         if (nombre == null || nombre.isEmpty()) {
